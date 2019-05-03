@@ -1,0 +1,14 @@
+0. get network interface
+	# ifconfig
+
+1. generate tcpdump data
+	# tcpdump -i enp0s3 -w traffic.dmp
+
+2. generate tcpstat data
+	# tcpstat -r traffic.dmp -o "%R\t%A\n" 60 > arp.data
+	# tcpstat -r traffic.dmp -o "%R\t%C\n" 60 > icmp.data
+	# tcpstat -r traffic.dmp -o "%R\t%T\n" 60 > tcp.data
+	# tcpstat -r traffic.dmp -o "%R\t%U\n" 60 > udp.data
+
+3. run gnuplot
+	# gnuplot gnuplot.script

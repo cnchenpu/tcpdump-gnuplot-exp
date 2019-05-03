@@ -1,10 +1,9 @@
-set term png small color 
-set data style lines
-set grid
-set yrange [ -10 :  ]
+set xlabel 'seconds'
+set ylabel 'packets/s'
+set style fill solid
+set term png enhanced font 'Verdana,10'
+set output 'plot.png'
 set title "Protocol breakdown in the last hour"
-set xlabel "seconds"
-set ylabel "packets/s"
 plot "arp.data" using 1:($2/60) smooth csplines title "ARP" \
      ,"icmp.data" using 1:($2/60) smooth csplines title "ICMP" \
      ,"tcp.data" using 1:($2/60) smooth csplines title "TCP" \
